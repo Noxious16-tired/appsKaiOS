@@ -1,0 +1,75 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: #0f172a; color: #f1f5f9;
+  font-family: sans-serif; font-size: 14px;
+}
+#app { position: relative; display: flex; flex-direction: column; height: 100vh; width: 100%; background: #0f172a; }
+
+/* Pratinjau di browser desktop: tampilkan ukuran layar KaiOS (240x320) */
+@media (min-width: 300px) {
+  html, body { overflow: auto; background: #020617; }
+  #app { width: 240px; height: 320px; margin: 20px auto; border: 1px solid #334155; }
+}
+
+#hdr {
+  height: 26px; flex: none; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6px; background: #f59e0b; color: #1f1300; font-weight: bold; font-size: 15px;
+}
+#back { display: none; margin-right: 6px; padding: 0 5px; border-radius: 3px; background: #1f1300; color: #fbbf24; cursor: pointer; }
+#title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#badge {
+  display: none; margin-left: 4px; padding: 1px 6px; border-radius: 9px;
+  background: #1f1300; color: #fbbf24; font-size: 12px; white-space: nowrap;
+}
+#sub {
+  flex: none; padding: 3px 6px; font-size: 12px; color: #94a3b8; background: #1e293b;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#big { display: none; flex: none; padding: 22px 0 10px; text-align: center; font-size: 52px; font-weight: bold; color: #fbbf24; }
+#list { flex: 1; overflow-y: auto; position: relative; }
+
+.row {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  padding: 5px 6px; min-height: 30px; border-bottom: 1px solid #1e293b;
+}
+.row .t { flex: 1; min-width: 0; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .r { margin-left: 6px; font-size: 12px; color: #94a3b8; white-space: nowrap; }
+.row .s { flex-basis: 100%; font-size: 11px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .bar { flex-basis: 100%; height: 3px; margin-top: 3px; background: #38bdf8; }
+.row.sel { background: #f59e0b; color: #1f1300; }
+.row.sel .r, .row.sel .s { color: #3b2a05; }
+.row.sel .bar { background: #1f1300; }
+.row.hd { min-height: 0; padding: 6px 6px 2px; border: 0; font-size: 11px; font-weight: bold; letter-spacing: 1px; color: #f59e0b; }
+
+.field .lab { flex-basis: 100%; font-size: 11px; color: #94a3b8; }
+.row.sel .lab { color: #3b2a05; }
+.field input {
+  width: 100%; margin-top: 2px; padding: 3px 4px; font-size: 18px;
+  background: #0f172a; color: #f1f5f9; border: 1px solid #475569; border-radius: 3px;
+}
+.field .val { flex-basis: 100%; font-size: 17px; font-weight: bold; }
+
+.empty { padding: 18px 10px; text-align: center; color: #94a3b8; white-space: pre-line; }
+
+#soft {
+  flex: none; height: 26px; display: flex; align-items: center;
+  background: #1e293b; border-top: 1px solid #334155; font-size: 13px; font-weight: bold;
+}
+#soft span { flex: 1; padding: 0 6px; white-space: nowrap; cursor: pointer; }
+#sk-c { text-align: center; font-size: 12px; color: #fbbf24; }
+#sk-r { text-align: right; }
+
+#toast {
+  display: none; position: absolute; left: 10px; right: 10px; bottom: 34px; z-index: 5;
+  padding: 6px; border-radius: 6px; background: rgba(0, 0, 0, 0.85); color: #fff;
+  text-align: center; font-size: 13px;
+}
+#dlg {
+  display: none; position: absolute; top: 0; right: 0; bottom: 26px; left: 0; z-index: 9;
+  align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.65);
+}
+#dlgmsg {
+  margin: 0 14px; padding: 14px; border: 2px solid #f59e0b; border-radius: 6px;
+  background: #1e293b; text-align: center; font-size: 15px;
+}
